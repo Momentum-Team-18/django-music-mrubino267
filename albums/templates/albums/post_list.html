@@ -1,14 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Muzack </title>
+    <title>My Albums</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <p>If they shenan once</p>
-    <p> They'll shenanigan!</p>
-    
+    <h2>Muzak</h2>
+    {% for album in albums %}
+    <p class='album-title'><a href="{% url 'album-detail' album.pk %}">{{album.title}}</a></p>
+    {% endfor %}
 </body>
 </html>
