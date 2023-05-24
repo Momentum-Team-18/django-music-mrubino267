@@ -1,7 +1,7 @@
 
 * {
     font-family: fantasy;
-
+    
 }
 
 #container-box {
@@ -9,23 +9,24 @@
     flex-wrap: wrap;
 }
 
-.album-card {
+.card {
     display: flex;
-    background-color: rgba(82, 104, 16, 0.545);
-    width: 30%;
-    height: 100px;
-    border-radius: 0.5em;
-    box-shadow: 0 3px 10px 5px rgb(0 0 0 / 0.5); 
-    margin-bottom: 20px;
-    margin-left: 20px;
-
-}
-.details-table th {
-    background-color: #92cd65;
-    margin-left: 20px;
+    width: 300px;
+    height: 150px;
+    margin: 10px; 
+    background-color: azure;
 }
 
-.details-table {
+.favorite {
+    font-size: 10px;
+    margin: auto; 
+}
+.primary th {
+    background-color: #41023d;
+    margin-left: 20px;
+}
+
+.primary {
     margin-left: 20px;
     margin-top: 20px;
 }
@@ -35,24 +36,16 @@ h2 {
 }
 
 .album-title {
-    font-size: 20px;
+    font-size: 16px;
     margin: auto;
-    padding: 20px;
+    padding: 20px, 0px; 
 }
 
 .submit-button {
-    background: #efec96;
-
+    background: #b4e38f; 
 }
 
-.add-album-form {
-    display: flex;
-    flex-direction: column;
-    width: 50%; 
-    margin-left: 20px;
-}
-
-.edit-album-form {
+.add-edit-album-form {
     display: flex;
     flex-direction: column;
     width: 50%; 
@@ -60,16 +53,12 @@ h2 {
 }
 
 
-
-.homepage-add-button {
-    background-color: #1eb681;
+.button-links {
+    background-color:  #f7e360;
     margin-left: 20px;
+    margin-bottom: 20px; ;
+    padding: 5px;
+    width: 34%; 
+    border-radius: 0.5em;
+    text-align: center;  
 }
-
-.delete-button {
-.edit-button, .delete-button {
-    background-color:  #ab9cf4;
-}
-    margin-left: 20px;
-}
-
