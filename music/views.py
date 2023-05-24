@@ -8,12 +8,12 @@ from django.utils import timezone
 
 def post_album_list(request):
     albums = Album.objects.all()
-    return render(request, 'music/index.html', {'albums': albums})
+    return render(request, 'index.html', {'albums': albums})
 
 
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    return render(request, 'music/album_detail.html', {'album': album})
+    return render(request, 'album_detail.html', {'album': album})
 
 
 def add_album(request):
@@ -23,7 +23,7 @@ def add_album(request):
         form = AlbumForm(request.POST)
         form.save()
         return redirect('post-album-list')
-    return render(request, 'music/add_album.html', {'form': form})
+    return render(request,'albums/add_album.html', {'form': form})
 
 
 def edit_album(request, pk):
@@ -34,10 +34,10 @@ def edit_album(request, pk):
         form = AlbumForm(request.POST)
         form.save()
         return redirect('post-album-list')
-    return render(request, 'music/edit_album.html', context)
+    return render(request,'albums/edit_album.html', context)
 
 
 def delete_album(request, pk):
     album = get_object_or_404(Album, pk=pk)
     album.delete()
-    return redirect('post-album-list')
+    return redirect('albums/post-album-list')
