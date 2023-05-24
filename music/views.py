@@ -13,7 +13,7 @@ def post_album_list(request):
 
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    return render(request, 'album_detail.html', {'album': album})
+    return render(request, 'albums/album_detail.html', {'albums': album})
 
 
 def add_album(request):
@@ -31,9 +31,10 @@ def edit_album(request, pk):
     if request.method == "GET":
         context = {'form': AlbumForm(instance=album), 'pk': pk}
     else:
-        form = AlbumForm(request.POST)
-        form.save()
-        return redirect('post-album-list')
+        form = AlbumForm(request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect('post-album-list')
     return render(request,'albums/edit_album.html', context)
 
 
