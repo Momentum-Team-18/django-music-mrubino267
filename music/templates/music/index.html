@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
-{% block content%}
-<body>
-    <h2>My albums</h2>
+{% block header %}Albums{% endblock %}
+{% block content %}
     <div class="button-links">
         <a href="{% url 'add-album' %}">add album</a>
     </div>
-        
-    </p>
+    <div class="button-links">
+        <a href="{% url 'artist-list' %}">albums by artist</a>
+    </div>
+    
     <div id="container-box">
         {% for album in albums %}
         <article class="card">
-            <footer>
-                <p class='album-title'><a href="{% url 'album-detail' album.pk %}">{{album.title}}</a></p>
-                    <button class="favorite">Favorite</button>
-            </footer>
+                <p class='album-title'><a href="{% url 'album-detail' album.pk %}">{{ album.title }}</a></p>
+                <a class="image" href="{% url 'album-detail' album.pk %}"><img src="{{ album.image.url }}" width="200"></a>
         </article>
         {% endfor %}
     </div> 
-</body>
 {% endblock %}
+{% block footer%}{% endblock %}

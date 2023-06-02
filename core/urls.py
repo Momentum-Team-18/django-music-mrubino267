@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from music import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,8 @@ urlpatterns = [
     path('music/add-album', views.add_album, name='add-album'),
     path('music/<int:pk>/delete', views.delete_album, name='delete-album'),
     path('music/<int:pk>/edit', views.edit_album, name='edit-album'),
+    path('artist/<int:pk>', views.albums_by_artist, name="albums-artist"),
+    path('artists', views.artist_list, name="artist-list"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
